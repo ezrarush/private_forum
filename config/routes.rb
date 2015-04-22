@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+
   get 'pages/home'
 
   # This line mounts Forem's routes at /forums by default.
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   mount Forem::Engine, :at => '/forums'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: 'pages#home'
+  root to: 'events#index'
   devise_for :users
   resources :users
 end

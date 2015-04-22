@@ -8,7 +8,7 @@ Forem.moderate_first_post = false
 
 Rails.application.config.to_prepare do
 
-  Forem.layout = "application"
+   Forem.layout = "application"
   
 #   If you want to change the layout that Forem uses, uncomment and customize the next line:
 #   Forem::ApplicationController.layout "forem"

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<%= stylesheet_link_tag "forem" %>
+<%= javascript_include_tag "forem" %>
+
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +10,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Private Forum" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    
-    <%= stylesheet_link_tag "forem" %>
-    <%= javascript_include_tag "forem" %>
-    
+    <%= csrf_meta_tags %>   
   </head>
   <body>
     <header>

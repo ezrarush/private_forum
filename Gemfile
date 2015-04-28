@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
 gem 'rails_admin'
-gem 'simple_form'
+
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'

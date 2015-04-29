@@ -18,18 +18,21 @@
   </div>
 
   <div class='field'>
-    <%= f.label :start_time -%>
-    <%= f.datetime_select :start_time -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :end_time -%>
-    <%= f.datetime_select :end_time -%>
-  </div>
-
-  <div class='field'>
     <%= f.label :all_day -%>
     <%= f.check_box :all_day, :checked => @event[:all_day] -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :start_time, 'Date' -%>
+    <%= f.date_select :start_time -%>
+    <span id='start_time_div'>
+          &mdash; <%= f.time_select :start_time, :ignore_date => true -%>
+    </span>
+  </div>
+
+  <div class='field' id='end_time_div'>
+    <%= f.label :end_time, 'End Date' -%>
+    <%= f.datetime_select :end_time -%>
   </div>
 
   <div class='field'>

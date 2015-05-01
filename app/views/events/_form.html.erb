@@ -1,9 +1,9 @@
 <%= form_for(@event) do |f| -%>
 
   <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
+    <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</strong>
       <ul>
       <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,42 +12,47 @@
     </div>
   <% end %>
 
-  <div class='field'>
-    <%= f.label :title -%>
-    <%= f.text_field :title, :class => 'larger widest' -%>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class='field'>
-    <%= f.label :all_day -%>
-    <%= f.check_box :all_day, :checked => @event[:all_day] -%>
+  <div class="form-group">
+    <%= f.label :all_day %>
+    <%= f.check_box :all_day, :checked => @event[:all_day] %>
   </div>
 
-  <div class='field'>
-    <%= f.label :start_time, 'Date' -%>
-    <%= f.date_select :start_time -%>
-    <span id='start_time_div'>
-          &mdash; <%= f.time_select :start_time, :ignore_date => true -%>
+  <div class="form-group">
+    <%= f.label :start_time, 'Start Date' %>
+    <%= f.date_select :start_time, class: 'form-control' %>
+    <span id="start_time_span">
+          &mdash; <%= f.time_select :start_time, :ignore_date => true, class: 'form-control' %>
     </span>
   </div>
 
-  <div class='field' id='end_time_div'>
-    <%= f.label :end_time, 'End Date' -%>
-    <%= f.datetime_select :end_time -%>
+  <div class="form-group" id="end_time_div">
+    <%= f.label :end_time, 'End Date' %>
+    <%= f.datetime_select :end_time, class: 'form-control' %>
   </div>
 
-  <div class='field'>
+  <div class="form-group">
     <%= f.label :event_type -%>  
-    <%= f.select :event_type, [['Blue', 1], ['Red', 2], ['Green', 3], ['Yellow', 4], ['Orange', 5]] -%>
+    <%= f.select :event_type, [['Blue', 1], ['Green', 2], ['Yellow', 3], ['Red', 4]] %>
   </div>
   
-  <div class='field'>
-    <%= f.label :blurb -%>
-    <%= f.text_area :blurb, :class => 'larger widest' -%>
+  <div class="form-group">
+    <%= f.label :location -%>
+    <%= f.text_field :location, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :blurb, 'Description' -%>
+    <%= f.text_area :blurb, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
   
-<% end -%>
+<% end %>
 

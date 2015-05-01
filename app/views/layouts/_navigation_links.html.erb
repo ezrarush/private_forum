@@ -1,12 +1,19 @@
 <%# add navigation links to this file %>
-<% if user_signed_in? %>
-  <li><%= link_to 'Members', main_app.users_path %></li>
-  <li><%= link_to 'Edit account', main_app.edit_user_registration_path %></li>
-  <% if current_user.forem_admin %>
-    <li><%= link_to 'admin', '/admin' %></li>
+<ul class="nav navbar-nav">
+  <% if user_signed_in? %>
+  <li class=<%= check_active "events" %>><%= link_to 'Events', main_app.root_path %>
+  <li class=<%= check_active "forem" %>><%= link_to 'Forums', forem.forums_path %>
+  <li class=<%= check_active "users" %>><%= link_to 'Members', main_app.users_path %></li>
+  <% if current_user.role == 'admin' %>
+  <li><%= link_to 'Admin Site', '/admin' %></li>
   <% end %>
-  <li><%= link_to 'Sign out', main_app.destroy_user_session_path, :method=>'delete' %></li>
-<% else %>
-  <li><%= link_to 'Sign in', main_app.new_user_session_path %></li>
-  <li><%= link_to 'Sign up', main_app.new_user_registration_path %></li>
-<% end %>
+  <% end %>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+  <% if user_signed_in? %>
+    <li class=<%= check_active "devise" %>><%= link_to current_user.name, main_app.edit_user_registration_path %></li>
+    <li><%= link_to raw('<span class="glyphicon glyphicon-log-out"></span> Sign out'), main_app.destroy_user_session_path, :method=>'delete' %></li>
+  <% else %>
+    <li><%= link_to raw('<span class="glyphicon glyphicon-log-in"></span> Sign in'), main_app.new_user_session_path %></li>
+  <% end %>
+</ul>

@@ -1,2 +1,2 @@
 <td><%= link_to user.name, user %></td>
-<td><%= link_to user.email, user %></td>
+<td><%= mail_to user.email,  raw('<span class="glyphicon glyphicon-envelope"></span> ') + user.email %></td>

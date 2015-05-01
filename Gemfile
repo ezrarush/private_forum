@@ -11,7 +11,6 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'forem', :github => "radar/forem", :branch => "rails4"
 end
 gem 'bootstrap-sass'
 gem 'devise'
@@ -29,6 +28,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '3.0.5'
 gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 gem 'forem-redcarpet', :git => "git://github.com/radar/forem-redcarpet"

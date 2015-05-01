@@ -86,11 +86,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   
-  # config.action_mailer.default :charset => "utf-8"
-
-  #for heroku
-  # Rails.application.routes.default_url_options[:host] = Rails.application.secrets.domain_name
-
+ 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

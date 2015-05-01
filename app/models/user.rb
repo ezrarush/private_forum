@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :email, presence: true
+  validates :name, :email, uniqueness: { case_sensitive: false }
   has_many :events
   
   # Include default devise modules. Others available are:
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
   
   before_create :set_default_role
 
-  ROLES = %w[admin member]
+  ROLES = %w[admin member guest]
   
   def forem_name
     name
@@ -18,7 +19,7 @@ class User < ActiveRecord::Base
   private
   
   def set_default_role
-    self.role ||= 'member'
+    self.role ||= 'guest'
   end
 
 end

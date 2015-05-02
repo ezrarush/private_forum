@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
 <ul class="nav navbar-nav">
-  <% if user_signed_in? %>
-  <li class=<%= check_active "events" %>><%= link_to 'Events', main_app.root_path %>
+  <% if (user_signed_in? and (current_user.role == 'member' or current_user.role == 'admin')) %>
+  <li class=<%= check_active "events" %>><%= link_to 'Events', main_app.events_path %>
   <li class=<%= check_active "forem" %>><%= link_to 'Forums', forem.forums_path %>
   <li class=<%= check_active "users" %>><%= link_to 'Members', main_app.users_path %></li>
   <% if current_user.role == 'admin' %>

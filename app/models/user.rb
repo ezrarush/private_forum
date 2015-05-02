@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  validates :name, :email, presence: true
-  validates :name, :email, uniqueness: { case_sensitive: false }
+  validates :name, presence: true
+  validates :name, uniqueness: { case_sensitive: false }
   has_many :events
   
   # Include default devise modules. Others available are:
@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   
   def forem_name
     name
+  end
+  
+  # override default forem permission
+  def can_read_forem_category?(category)
+    true if (self.role == 'admin' or self.role == 'member')
   end
   
   private

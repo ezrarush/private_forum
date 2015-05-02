@@ -12,7 +12,14 @@ Rails.application.routes.draw do
   mount Forem::Engine, :at => '/forums'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: 'events#index'
+ 
   devise_for :users
   resources :users
+  
+  authenticated :user do
+    root to: 'events#index', :as => :authenticated_root
+  end
+  
+  root :to => redirect('/users/sign_in')
+  
 end

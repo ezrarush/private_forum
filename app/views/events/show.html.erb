@@ -1,39 +1,90 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h3>Event</h3>
+</div>  
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <strong>Title:</strong>
+    </p>
+  </div>
+  <div class="col-md-10">
+    <p>
+      <%= @event.title %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Created By:</strong>
-  <%= @event.user.name %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <strong>Created By:</strong>
+    </p>
+  </div>
+  <div class="col-md-10">
+    <p>
+      <%= @event.user.name %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <strong>Start time:</strong>
+    </p>
+  </div>
+  <div class="col-md-10">
+    <p>
+      <% if @event.all_day %>
+        <%= @event.start_time.strftime("%B %-d, %Y, %a") %> All Day
+      <% else %>
+        <%= @event.start_time.strftime("%B %-d, %Y, %a %l:%M %P") %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
+<% unless @event.all_day %>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <strong>End time:</strong>
+    </p>
+  </div>
+  <div class="col-md-10">
+    <p>
+      <%= @event.end_time.strftime("%B %-d, %Y, %a %l:%M %P") %>
+    </p>
+  </div>
+</div>
+<% end %>
 
-<p>
-  <strong>All day:</strong>
-  <%= @event.all_day %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <strong>Location:</strong>
+    </p>
+  </div>
+  <div class="col-md-10">
+    <p>
+      <%= @event.location %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <strong>Description:</strong>
+    </p>
+  </div>
+  <div class="col-md-10">
+    <p>
+      <%= @event.blurb %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.blurb %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-primary btn-sm" %> 
 <%= link_to 'Back', events_path %>

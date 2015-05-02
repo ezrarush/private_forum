@@ -36,7 +36,7 @@
           <% end %>
 	</td>
 	<td class="col-md-3">
-	  <%= event.location %>
+	  <%= truncate event.location, length: 25, separator: ',' %>
 	</td>
 	<td class="col-md-6">
           <%= link_to event.title, event %>

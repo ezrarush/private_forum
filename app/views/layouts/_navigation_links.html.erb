@@ -11,7 +11,9 @@
 </ul>
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? %>
-    <li class=<%= check_active "devise" %>><%= link_to current_user.name, main_app.edit_user_registration_path %></li>
+    <li class=<%= check_active "devise" %>>
+      <%= link_to raw('<span class="glyphicon glyphicon-user"></span>') +  current_user.name, main_app.edit_user_registration_path %>
+    </li>
     <li><%= link_to raw('<span class="glyphicon glyphicon-log-out"></span> Sign out'), main_app.destroy_user_session_path, :method=>'delete' %></li>
   <% else %>
     <li><%= link_to raw('<span class="glyphicon glyphicon-log-in"></span> Sign in'), main_app.new_user_session_path %></li>

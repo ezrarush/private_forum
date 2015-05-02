@@ -21,34 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @events.each do |event| %>
-      <tr <% case event.event_type
-	   when 2 %>class="success"
-	  <% when 3 %>class="warning"
-	  <% when 4 %>class="danger"
-	  <% else %>class="info"
-	  <% end %>>
-        <td class="col-md-3">
-	  <% if event.all_day %>
-            <%= event.start_time.strftime("%B %-d, %Y, %a") %>
-	  <% else %>
-            <%= event.start_time.strftime("%B %-d, %Y, %a %l:%M %P") %>
-          <% end %>
-	</td>
-	<td class="col-md-3">
-	  <%= truncate event.location, length: 25, separator: ',' %>
-	</td>
-	<td class="col-md-6">
-          <%= link_to event.title, event %>
-	  <div class="btn-group pull-right">
-	    <% if (can? :update, Event) and ((event.user_id == current_user.id) or (current_user.role == "admin")) %>
-	      <%= link_to  raw('<span class="glyphicon glyphicon-edit"></span>'), edit_event_path(event), class: "btn btn-info btn-xs" %>
-	      <%= link_to  raw('<span class="glyphicon glyphicon-remove"></span>'), event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
-	    <% end %>
-	  </div>	
-	</td>
-      </tr>
-    <% end %>
+    <%= render partial: 'event', collection: @events.order(:start_time).reverse_order %>
   </tbody>
 </table>
 <p>

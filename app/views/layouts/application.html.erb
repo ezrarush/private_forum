@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= yield(:title) %>Private Forum</title>
+    <title><%= yield(:title) %>Private Site</title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Private Forum" %>"> 
 
     <%= stylesheet_link_tag "forem", media: 'all', 'data-turbolinks-track' => true %>
@@ -19,7 +19,5 @@
       <%= render 'layouts/messages' %>
       <%= yield %>
     </div>
-   <%= debug(params) %>
-   
   </body>
 </html>

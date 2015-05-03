@@ -1,0 +1,15 @@
+<%= simple_form_for [forem, @forum, @topic] do |f| %>
+
+  <div class ="form-group">
+    <%= f.input :subject %>
+  </div>
+
+  <%= f.simple_fields_for :posts do |post| %>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
+  <% end %>
+  
+  <div class="btn-group">
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= link_to 'Cancel', forem.forum_path(@forum), :class => "btn btn-danger" %>
+  </div>
+<% end %>

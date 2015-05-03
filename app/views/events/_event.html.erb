@@ -6,9 +6,9 @@
     <% end %>>
   <td class="col-md-3">
     <% if event.all_day %>
-    <%= event.start_time.strftime("%B %-d, %Y, %a") %>
+    <%= event.start_time.strftime("%B %-d, %a") %>
     <% else %>
-    <%= event.start_time.strftime("%B %-d, %Y, %a %l:%M %P") %>
+    <%= event.start_time.strftime("%B %-d, %a %l:%M %P") %>
     <% end %>
   </td>
   <td class="col-md-3">

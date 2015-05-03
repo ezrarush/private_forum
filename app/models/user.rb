@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: { case_sensitive: false }
-  has_many :events
+  has_many :events, dependent: :destroy
   
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   # override default forem permission
   def can_read_forem_category?(category)
     true if (self.role == 'admin' or self.role == 'member')
+  end
+  
+  def is_admin?
+    self.role == "admin"
   end
   
   private

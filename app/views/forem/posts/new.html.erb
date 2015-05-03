@@ -1,0 +1,21 @@
+<%= render :partial => 'forem/topics/head', :locals => { :topic => @topic } %>
+
+<% if @reply_to_post %>
+  <h3>
+    <%= t("forem.post.new") %>
+  </h3>
+  <%= render 'reply_to_post', :post => @reply_to_post %>
+<% else %>
+  <h3>
+    <%= t("forem.post.new") %>
+    <em><%= @topic.subject %></em>
+  </h3>
+<% end %>
+
+<%= simple_form_for [forem, @topic.forum, @topic, @post] do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <div class="btn-group">
+    <%= f.submit t("forem.post.buttons.reply"), :class => "btn btn-primary" %>
+    <%= link_to 'Cancel', forem.forum_topic_path(@topic.forum, @topic), :class => "btn btn-danger" %>
+  </div>
+<% end %>

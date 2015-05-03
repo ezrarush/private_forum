@@ -2,6 +2,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// fix-navbar covers the jump to page anchors
+a.anchor{display: block; position: relative; top: -55px; visibility: hidden;}
+
 // forem messes with the navbar
 .navbar {
   margin-top: 0px;

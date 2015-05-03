@@ -1,5 +1,9 @@
 <tr>
-  <td><%= link_to user.name, user %></td>
+  <td>
+    <% if current_user.is_admin? %>
+      <%= user.id %>
+    <% end %>
+    <%= link_to user.name, user %></td>
   <td><%= mail_to user.email,  raw('<span class="glyphicon glyphicon-envelope"></span> ') + user.email %></td>
   <td><%= user.role if user.role %></td>
 </tr>

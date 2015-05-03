@@ -1,6 +1,12 @@
-<h1>Editing Event</h1>
+<% content_for :title do %>Editing Event - <% end %>
+<div class="page-header">
+  <h3>Editing Event</h3>
+</div>  
 
-<%= render 'form' %>
-
+<div class="row">
+  <div class="well well-sm col-md-8">
+    <%= render 'form' %>
+  </div>
+</div>
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>

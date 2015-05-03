@@ -30,7 +30,7 @@ end
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '3.0.5'
-gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
+gem 'forem-bootstrap', :github => "ezrarush/forem-bootstrap"
 gem 'forem-redcarpet', :git => "git://github.com/radar/forem-redcarpet"
 
 gem 'fullcalendar-rails', '~> 2.0.2.0' 

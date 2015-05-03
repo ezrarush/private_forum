@@ -1,0 +1,21 @@
+<%= simple_form_for [forem, :admin, @topic.forum, @topic] do |f| %>
+  <div class ="form-group">
+    <%= f.input :subject %>
+  </div>
+  <div class ="form-group">
+    <%= f.association :forum , :label => "Forum" %>
+  </div>  
+  <div class ="form-group">
+    <%= f.label :locked %>
+    <%= f.check_box :locked %>
+    <%= f.label :pinned %>
+    <%= f.check_box :pinned %>
+    <%= f.label :hidden %>
+    <%= f.check_box :hidden %>
+  </div>
+
+  <div class="btn-group">
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= link_to 'Cancel', forem.forum_topic_path(@topic.forum, @topic), :class => "btn btn-danger" %>
+  </div>  
+<% end %>

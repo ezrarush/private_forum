@@ -1,0 +1,4 @@
+<div class="forum">
+  <h2><%= link_to t('forem.forum.forums'), forem.forums_path %> &raquo; <%= link_to forem_emojify(topic.forum.category), [forem, topic.forum.category] %> &raquo; <%= link_to forem_emojify(topic.forum.title), [forem, topic.forum] %> &raquo; <%= link_to forem_emojify(topic.subject), forem.forum_topic_path(topic.forum, topic) %></h2>
+  <span id='description'><%= forem_format(topic.forum.description) %></span>
+</div>

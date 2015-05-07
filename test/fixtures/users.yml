@@ -1,0 +1,11 @@
+joe: 
+  name: Joe Blow
+  email: joeblow@example.com
+  role: guest
+  encrypted_password: <%= Devise.bcrypt(User, 'changeme') %>
+
+john:
+  name: John Smith
+  email: johnsmith@example.com
+  role: member
+  encrypted_password: <%= Devise.bcrypt(User, 'changeme') %>
